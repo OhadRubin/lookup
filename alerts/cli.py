@@ -1,11 +1,10 @@
 import os
 from slack import WebClient
-
-CACHE_PATH = user_cache_dir("alerts", "alerts")
-import fire
 from appdirs import user_cache_dir
+
+cache_path = user_cache_dir("alerts", "alerts")
+import fire
 import os
-cache_path = user_cache_dir("tiny_cache", "tiny_cache")
 os.makedirs(cache_path, exist_ok=True)
 import json
 import pathlib
@@ -18,8 +17,8 @@ def get_token():
   
 def send_message(message,token,channel="ohad_alerts"):
   if token is None:
-    slack_token = get_token()
-  client = WebClient(token=slack_token)
+    token = get_token()  
+  client = WebClient(token=token)
   
   client.chat_postMessage(
     channel=channel,
@@ -34,7 +33,7 @@ def main_loop(cmd:str, message=None,token=None):
       with open(f"{cache_path}/credentials.json","w") as f:
         json.dump(dict(token=token),f)
       logger.info("Saved credentials")
-      send_message("Logged in successfully")
+      send_message("Logged in successfully",token)
       
     else:
         print("Unknown command")
