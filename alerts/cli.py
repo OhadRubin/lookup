@@ -24,7 +24,8 @@ def send_message(message,token=None,channel="ohad_alerts"):
     text=message,
   )
 
-
+# alerts login --token <TOKEN>
+# alerts msg --message "hi there what's up?"
 def main_loop(cmd:str, message=None,token=None):
     if cmd == "msg":
         send_message(message,token)
