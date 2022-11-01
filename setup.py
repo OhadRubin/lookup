@@ -24,6 +24,6 @@ setuptools.setup(
         "loguru == 0.6.0",
     ],
     
-    entry_points={"console_scripts": ["tiny_queue = tiny_queue.cli:main"]},
+    entry_points={"console_scripts": ["alert = alert.cli:main"]},
 
 )
