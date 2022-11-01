@@ -24,6 +24,6 @@ setuptools.setup(
         "loguru == 0.6.0",
     ],
     
-    entry_points={"console_scripts": ["alert = alert.cli:main"]},
+    entry_points={"console_scripts": ["alerts = alerts.cli:main"]},
 
 )
