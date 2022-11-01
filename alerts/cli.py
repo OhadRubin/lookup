@@ -7,7 +7,6 @@ import fire
 import os
 os.makedirs(cache_path, exist_ok=True)
 import json
-import pathlib
 from loguru import logger
 
 def get_token():
@@ -15,7 +14,7 @@ def get_token():
   with open(f"{cache_path}/credentials.json") as f:
         return json.load(f)["token"]
   
-def send_message(message,token,channel="ohad_alerts"):
+def send_message(message,token=None,channel="ohad_alerts"):
   if token is None:
     token = get_token()  
   client = WebClient(token=token)
@@ -33,8 +32,6 @@ def main_loop(cmd:str, message=None,token=None):
       with open(f"{cache_path}/credentials.json","w") as f:
         json.dump(dict(token=token),f)
       logger.info("Saved credentials")
-      send_message("Logged in successfully",token)
-      
     else:
         print("Unknown command")
     
