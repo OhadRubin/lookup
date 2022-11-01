@@ -9,6 +9,7 @@ cache_path = user_cache_dir("tiny_cache", "tiny_cache")
 os.makedirs(cache_path, exist_ok=True)
 import json
 import pathlib
+from loguru import logger
 
 def get_token():
   assert os.path.exists(f"{cache_path}/credentials.json"), "Please login first"
@@ -32,6 +33,9 @@ def main_loop(cmd:str, message=None,token=None):
     elif cmd == "login":
       with open(f"{cache_path}/credentials.json","w") as f:
         json.dump(dict(token=token),f)
+      logger.info("Saved credentials")
+      send_message("Logged in successfully")
+      
     else:
         print("Unknown command")
     
