@@ -12,7 +12,9 @@ def get(url:str):
     hostname = gethostname()
     rdict = StrictRedis.from_url(url)
     return rdict.get(hostname).decode()
-    
+
+def main():
+    fire.Fire()
 
 if __name__ == '__main__':
-    fire.Fire()
+    main()
