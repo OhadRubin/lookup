@@ -17,6 +17,7 @@ def lset(data:Any, hostname:Optional[str]=None):
 
 
 def lget(hostname:Optional[str]=None):
+    url = os.environ["REDIS_URL"]
     if hostname is None:
         hostname = gethostname()
     rdict = StrictRedis.from_url(url)
