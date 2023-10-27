@@ -24,7 +24,7 @@ def lget(hostname:Optional[str]=None):
     return out 
 
 
-def get_set_argv()
+def get_set_argv():
     if len(sys.argv)==1:
         sys.argv = lget(url)
     else:
