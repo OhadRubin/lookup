@@ -1,7 +1,7 @@
 import setuptools
 
 setuptools.setup(
-    name="alerts",
+    name="lookup",
     version="0.0.1",
     author="",
     author_email="",
@@ -9,7 +9,7 @@ setuptools.setup(
     long_description="",
     long_description_content_type="text/plain",
     url="",
-    packages=["alerts"],
+    packages=["lookup"],
     include_package_data=True,
     classifiers=[],
     python_requires=">=3.6",
@@ -24,6 +24,6 @@ setuptools.setup(
         "loguru == 0.6.0",
     ],
     
-    entry_points={"console_scripts": ["alerts = alerts.cli:main"]},
+    entry_points={"console_scripts": ["lookup = lookup.cli:main"]},
 
 )
